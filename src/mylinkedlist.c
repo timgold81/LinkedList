@@ -32,6 +32,35 @@ int add_to_list(struct my_list *current_list,struct my_list *new_entry)
 }
 
 /**
+ *  Remove node number n from the list.
+ *  To remove current node, in the list send address of the
+ * node to the function with n=0
+ */
+int remove_n_from_list(struct my_list *entry_to_remove,int n)
+{
+	int i;
+	for (i=0;i<n;i++)
+	{
+		if (entry_to_remove==NULL)
+			return -1;
+		entry_to_remove=entry_to_remove->next_node;
+	}
+
+	if (entry_to_remove->prev_node==NULL && entry_to_remove->next_node!=NULL)
+		entry_to_remove->next_node->prev_node=NULL;
+	else if (entry_to_remove->next_node==NULL && entry_to_remove->prev_node!=NULL)
+		entry_to_remove->prev_node->next_node=NULL;
+	else if (entry_to_remove->next_node!=NULL && entry_to_remove->prev_node!=NULL)
+	{
+		entry_to_remove->prev_node->next_node=entry_to_remove->next_node;
+		entry_to_remove->next_node->prev_node=entry_to_remove->prev_node;
+	}
+
+	free (entry_to_remove);
+	return 0;
+}
+
+/**
  * Frees all of the memory of the linked list
  */
 int free_all(struct my_list *any_entry)

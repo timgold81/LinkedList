@@ -23,5 +23,6 @@ struct my_list
 };
 
 int add_to_list(struct my_list *current_list,struct my_list *new_entry);
-int free_all(struct my_list *any_entry)
+int free_all(struct my_list *any_entry);
+int remove_n_from_list(struct my_list *entry_to_remove,int n);
 #endif /* MYLINKEDLIST_H_ */
