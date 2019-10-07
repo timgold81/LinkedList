@@ -22,6 +22,6 @@ struct my_list
 	struct my_data mydata;
 };
 
-int test();
 int add_to_list(struct my_list *current_list,struct my_list *new_entry);
+int free_all(struct my_list *any_entry)
 #endif /* MYLINKEDLIST_H_ */
