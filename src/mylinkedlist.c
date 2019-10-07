@@ -31,6 +31,9 @@ int add_to_list(struct my_list *current_list,struct my_list *new_entry)
 	return 0;
 }
 
+/**
+ * Frees all of the memory of the linked list
+ */
 int free_all(struct my_list *any_entry)
 {
 	// get to the first node
